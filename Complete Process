@@ -1,0 +1,34 @@
+mkdir docs
+touch docs/guide.md
+  nano docs/guide.md
+     paste the Docker command guide
+touch index.html
+  nano index.html
+    paste the index.html file
+    ctrl+o, enter, ctrl+x
+git init
+git checkout -b feature/add-guide
+git add docs/guide.md index.html
+git commit -m "Add Docker guide and index.html page"
+git checkout -b main
+git merge feature/add-guide
+git remote add origin https://github.com/GAUTAM7978/DevOps-Task-2.git
+git push -u origin main
+   username: GAUTAM7978
+   password: token
+git push origin feature/add-guide
+   username: GAUTAM7978
+   password: token
+Go to github -> compare and pull request -> Submit the PR
+Go to the issues tab in Github. Click new issues and fill in titel and description
+  E.g. :- Title : Add git examples to guide.md
+          Description : Add common git commands like git clone, git commit etc.
+nano Dockerfile
+  FROM python:3
+  WORKDIR /app
+  COPY index.html
+  CMD ["python3","-m","http.server","80"]
+  ctrl=o, enter, ctrl+x
+docker build -t docsite
+docker run -p 8080:80 docsite
+http://localhost:80
